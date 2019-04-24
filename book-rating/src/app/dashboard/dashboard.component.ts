@@ -9,6 +9,8 @@ import { Book } from '../shared/book';
 export class DashboardComponent implements OnInit {
 
   books: Book[];
+  myUrl = '//angular.schule';
+  myClasses = 'text-success';
 
   constructor() { }
 
