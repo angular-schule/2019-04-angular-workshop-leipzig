@@ -20,13 +20,15 @@ export class DashboardComponent implements OnInit {
         isbn: '000',
         title: 'Angular',
         description: 'Grundlagen und Best Practices',
-        rating: 5
+        rating: 5,
+        price: 34.9
       },
       {
         isbn: '111',
         title: 'React',
         description: 'Ein anderes Framework',
-        rating: 3
+        rating: 3,
+        price: 32.9
       }
     ];
   }
