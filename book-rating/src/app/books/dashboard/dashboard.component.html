@@ -11,7 +11,9 @@
 
 <hr>
 
-<strong>Anzahl Bücher:</strong> {{ books.length }}
+<ng-container *ngIf="books">
+  <strong>Anzahl Bücher:</strong> {{ books.length }}
+</ng-container>
 
 <p>
   <a [href]="myUrl">Zur Website</a>
