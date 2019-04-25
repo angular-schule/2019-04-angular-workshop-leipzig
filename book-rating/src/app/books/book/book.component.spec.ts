@@ -5,7 +5,7 @@ import { Book } from '../shared/book';
 import { ButtonSharedModule } from 'src/app/button-shared/button-shared.module';
 import { By } from '@angular/platform-browser';
 
-fdescribe('BookComponent', () => {
+describe('BookComponent', () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
 
