@@ -14,11 +14,13 @@
 
     <ng-container *ngFor="let x of getStars()">⭐️</ng-container>
 
-    <span class="badge badge-success ml-2">{{ book.price | currency:'EUR' }}</span>
+    <span class="badge badge-success ml-2">
+      {{ book.price | currency:'EUR' }}
+    </span>
 
     <p>{{ book.description }}</p>
 
-    <button class="btn btn-secondary mr-2" (click)="doRateUp()">+</button>
+    <button class="btn btn-secondary mr-2" data-testing-id="rateUpBtn" (click)="doRateUp()">+</button>
     <button class="btn btn-secondary mr-2" (click)="doRateDown()">–</button>
   </div>
 </div>
