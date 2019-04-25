@@ -2,11 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { utf8Encode } from '@angular/compiler/src/util';
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
 
-fdescribe('DashboardComponent', () => {
+describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
 
