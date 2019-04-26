@@ -1,16 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Observable, interval, Subscription, Subject } from 'rxjs';
+import { map, filter, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'br-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'Book Rating';
 
-  /*constructor() {
-    setTimeout(() => {
-      this.title = 'Hallo';
-    }, 2000);
-  }*/
+  private destroy$ = new Subject();
+
+  ngOnDestroy() {
+    this.destroy$.next();
+  }
+
+  constructor() {
+
+    interval(1000).pipe(
+      map(num => num * 3),
+      filter(num => num % 2 === 0),
+      takeUntil(this.destroy$)
+    ).subscribe(e => console.log(e));
+
+    /*
+
+    function producer(obs) {
+      obs.next(1);
+
+      setTimeout(() => {
+        obs.next(2);
+      }, 2000);
+
+      obs.next(3);
+
+      obs.complete();
+    }
+
+
+    const myObserver = {
+      next: value => console.log(value),
+      error: err => console.log('ERR', err),
+      complete: () => console.log('COMPLETE'),
+    };
+
+    const myObservable = new Observable(producer);
+    */
+  }
 }
