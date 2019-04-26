@@ -1,3 +1,38 @@
-<p>
-  book-form works!
-</p>
+<button class="btn btn-danger" (click)="logForm()">Log form</button>
+
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>ISBN</label>
+    <input class="form-control" type="text" formControlName="isbn">
+    <div class="feedback-red" *ngIf="isInvalid('isbn')">ISBN ist ungültig.</div>
+  </div>
+
+  <div class="form-group">
+    <label>Titel</label>
+    <input class="form-control" type="text" formControlName="title">
+  </div>
+
+  <div class="form-group">
+    <label>Beschreibung</label>
+    <textarea class="form-control" formControlName="description"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Preis</label>
+    <input class="form-control" type="number" formControlName="price">
+  </div>
+
+
+  <div class="form-group">
+    <button
+      [disabled]="bookForm.invalid"
+      type="submit"
+      class="btn btn-danger">Abschicken</button>
+  </div>
+
+
+</form>
+
+<pre>
+{{ bookForm.value | json }}
+</pre>
