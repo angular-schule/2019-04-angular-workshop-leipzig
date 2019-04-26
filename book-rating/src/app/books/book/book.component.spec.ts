@@ -58,7 +58,7 @@ describe('BookComponent', () => {
     spyOn(component, 'doRateUp');
 
     // Button holen
-    const rateUpBtn = fixture.debugElement
+    const rateUpBtn: HTMLButtonElement = fixture.debugElement
       .query(By.css('[data-testing-id="rateUpBtn"]'))
       .nativeElement;
 

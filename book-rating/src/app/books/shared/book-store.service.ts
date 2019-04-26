@@ -16,6 +16,22 @@ export class BookStoreService {
     return this.http.get<Book[]>(`${this.api}/books`);
   }
 
+  getSingle(isbn: string): Observable<Book> {
+    return this.http.get<Book>(`${this.api}/book/${isbn}`);
+  }
+
+  create(book: Book): Observable<any> {
+    return this.http.post(
+      `${this.api}/book`,
+      book,
+      { responseType: 'text' } // wenn API kein JSON liefert
+    );
+  }
+
+  search(term: string): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.api}/books/search/${term}`);
+  }
+
   getAllStatic(): Book[] {
     return [
       {
