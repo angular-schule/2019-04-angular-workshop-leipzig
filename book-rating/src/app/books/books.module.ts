@@ -5,11 +5,13 @@ import { BooksRoutingModule } from './books-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookComponent } from './book/book.component';
 import { ButtonSharedModule } from '../button-shared/button-shared.module';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    BookComponent
+    BookComponent,
+    BookDetailsComponent
   ],
   imports: [
     CommonModule,
