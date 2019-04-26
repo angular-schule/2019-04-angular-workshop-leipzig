@@ -12,17 +12,19 @@ export class AppComponent implements OnDestroy {
 
   private destroy$ = new Subject();
 
+  myInterval$: Observable<number>;
+
   ngOnDestroy() {
     this.destroy$.next();
   }
 
   constructor() {
 
-    interval(1000).pipe(
+    this.myInterval$ = interval(1000).pipe(
       map(num => num * 3),
       filter(num => num % 2 === 0),
-      takeUntil(this.destroy$)
-    ).subscribe(e => console.log(e));
+      // takeUntil(this.destroy$)
+    );
 
     /*
 
